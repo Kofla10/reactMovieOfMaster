@@ -17,9 +17,14 @@ export const Operation = () => {
         setNum(num - 1);
     }
 
+    const handleChandeValue = (num) => {
+        setNum(num)
+    }
+
 
     return {
         num,
+        handleChandeValue,
         handleSum,
         handleSubtract
     }
