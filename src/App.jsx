@@ -1,14 +1,33 @@
 import './App.css';
 
 import { getDataMovie } from './hooks/getDataMovie';
+import { useForm } from './hooks/useForm';
+
+const dataForm = {
+  titleMovie: ''
+}
 
 const App = () => {
 
-  const dataMovie = getDataMovie('Spiderman')
-  console.log(dataMovie)
+  const { form, handleInputChange } = useForm( dataForm )
+  const { titleMovie } = form;
+
+  const dataMovie = getDataMovie(titleMovie)
 
   return (
-    <h1>App</h1>
+    <div className='app'>
+      <h1> MoviLand </h1>
+      <div className='search'>
+        <input type        = 'text'
+               placeholder = 'Search for Movie'
+               value       = {titleMovie}
+               name        = 'titleMovie'
+               onChange    = {handleInputChange}
+        />
+
+      </div>
+
+    </div>
   )
 }
 
