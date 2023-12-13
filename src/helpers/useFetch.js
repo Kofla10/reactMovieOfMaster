@@ -4,5 +4,5 @@ export const useFetch = async (title) => {
     const resp = await fetch(API_URL);
     const data = await resp.json();
 
-    return data
+    return data;
 }

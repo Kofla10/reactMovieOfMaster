@@ -4,8 +4,6 @@ import { useFetch } from '../helpers/useFetch';
 
 export const getDataMovie = ({dataForm}) => {
   const { titleMovie } = dataForm;
-  console.log('this is initial form: ',titleMovie)
-
 
   const [dataMovie, setDataMovie] = useState();
 
@@ -19,4 +17,5 @@ export const getDataMovie = ({dataForm}) => {
   }, [titleMovie])
 
   return dataMovie;
+  
 }

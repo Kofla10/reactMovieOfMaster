@@ -1,7 +1,8 @@
 import React from 'react'
 
 export const GetImage = () => {
+  console.log('this is the title: ',Title)
   return (
-    <div>GetImage</div>
+    <div> test </div>
   )
 }
