@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react'
+
 import { useFetch } from '../helpers/useFetch';
 
-export const getDataMovie = (title) => {
+export const getDataMovie = ({dataForm}) => {
+  const { titleMovie } = dataForm;
+  console.log('this is initial form: ',titleMovie)
+
 
   const [dataMovie, setDataMovie] = useState();
 
   const getPost = async () => {
-  const data = await useFetch(title);
+    const data = await useFetch(titleMovie);
     setDataMovie(data.Search);
   }
 
   useEffect(() => {
     getPost();
-  }, [])
+  }, [titleMovie])
 
-   return dataMovie;
+  return dataMovie;
 }
