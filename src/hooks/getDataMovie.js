@@ -2,20 +2,18 @@ import { useEffect, useState } from 'react'
 
 import { useFetch } from '../helpers/useFetch';
 
-export const getDataMovie = ({dataForm}) => {
-  const { titleMovie } = dataForm;
+export const getDataMovie = (title) => {
 
   const [dataMovie, setDataMovie] = useState();
 
   const getPost = async () => {
-    const data = await useFetch(titleMovie);
+  const data = await useFetch(title);
     setDataMovie(data.Search);
   }
 
   useEffect(() => {
     getPost();
-  }, [titleMovie])
+  }, [title])
 
   return dataMovie;
-  
 }

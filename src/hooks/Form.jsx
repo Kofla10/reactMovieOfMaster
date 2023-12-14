@@ -1,18 +1,16 @@
-import React from 'react'
-import { useForm } from './useForm';
+import React, {useState} from 'react'
 
-export const Form = (dataForm) => {
 
-  const { handleInputChange, handleOnSubmit,form, titleMovie } = useForm( dataForm );
+export const Form = ({onSubmit, inputChange, title}) => {
 
-  return (
-    <form onSubmit={ handleOnSubmit }>
-          <input type        = 'text'
-                 placeholder = 'Search for Movie'
-                 value       = {titleMovie}
-                 name        = 'titleMovie'
-                 onChange    = {handleInputChange}
-          />
-        </form>
-  );
+    return (
+      <form onSubmit={ onSubmit }>
+            <input type        = 'text'
+                  placeholder = 'Search for Movie'
+                  value       = {title}
+                  name        = 'titleMovie'
+                  onChange    = {inputChange}
+            />
+          </form>
+    );
 }

@@ -1,32 +1,41 @@
+import React, { useState } from 'react';
+
 import './App.css';
 import { Form } from './hooks/Form';
 import { GetImage } from './hooks/GetImage';
 import { getDataMovie } from './hooks/getDataMovie';
 
+import {useForm} from './hooks/useForm'
+
 const dataForm = {
-  titleMovie: 'batman'
+  titleMovie: ''
 }
 
 const App = () => {
-  
-  const dataMovie = getDataMovie({dataForm});
-  console.log(dataMovie)
-  
+
+  const [chaneData, setChaneData] = useState(dataForm)
+  const { titleMovie } = dataForm;
+
+  const dataMovie = getDataMovie(dataForm.titleMovie);
+
+  const { form, handleOnSubmit, handleInputChange } = useForm(dataForm);
+
   return (
     <div className='app'>
       <h1> MoviLand </h1>
       <div className='search'>
-          <Form   { ...dataForm }/>
+          <Form
+            onSubmit    = {handleOnSubmit}
+            inputChange = { handleInputChange }
+            title       = {dataForm.titleMovie}
+          />
       </div>
       <div>
-        {
-         dataMovie && dataMovie.length > 0
-         ? dataMovie.map((data) => {
-             <GetImage key={data.imdbId} />
-            
-           })
-         : console.log('when you charge the data, fist charge is null')
-        }
+        {/* {
+          dataMovie.map((data) => {
+            <GetImage key={data.imdbId} />
+          })
+        } */}
       </div>
       <hr />
     </div>
