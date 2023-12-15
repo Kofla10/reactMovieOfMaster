@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 
-
-export const Form = ({onSubmit, inputChange, title}) => {
+export const Form = ({onSubmit, inputChange, nameMovie}) => {
 
     return (
       <form onSubmit={ onSubmit }>
             <input type        = 'text'
                   placeholder = 'Search for Movie'
-                  value       = {title}
-                  name        = 'titleMovie'
+                  value       = {nameMovie}
+                  name        = 'title'
                   onChange    = {inputChange}
             />
           </form>

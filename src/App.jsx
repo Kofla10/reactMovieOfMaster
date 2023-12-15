@@ -3,22 +3,28 @@ import React, { useState } from 'react';
 import './App.css';
 import { Form } from './hooks/Form';
 import { GetImage } from './hooks/GetImage';
-import { getDataMovie } from './hooks/getDataMovie';
+// import { getDataMovie } from './hooks/getDataMovie';
 
 import {useForm} from './hooks/useForm'
+import { getDataMovie } from './hooks/getDataMovie';
 
 const dataForm = {
-  titleMovie: ''
+  "Title" : 'batman',
+  "Year"  : 0,
+  "imdbID": "",
+  "Type"  : '',
+  "Poster": ''
 }
 
 const App = () => {
 
-  const [chaneData, setChaneData] = useState(dataForm)
-  const { titleMovie } = dataForm;
+  const {movie, nameMovie, handleOnSubmit, handleInputChange } = useForm();
+  
 
-  const dataMovie = getDataMovie(dataForm.titleMovie);
+  const dataMovie = getDataMovie(movie);
+  console.log(dataMovie);
 
-  const { form, handleOnSubmit, handleInputChange } = useForm(dataForm);
+
 
   return (
     <div className='app'>
@@ -27,15 +33,15 @@ const App = () => {
           <Form
             onSubmit    = {handleOnSubmit}
             inputChange = { handleInputChange }
-            title       = {dataForm.titleMovie}
+            nameMovie = { nameMovie }
           />
       </div>
       <div>
-        {/* {
-          dataMovie.map((data) => {
-            <GetImage key={data.imdbId} />
-          })
-        } */}
+         {
+          // dataForm.forEach(data => {
+          //   console.log(data)
+          // })
+        }
       </div>
       <hr />
     </div>

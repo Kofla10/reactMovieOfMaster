@@ -8,7 +8,7 @@ export const getDataMovie = (title) => {
 
   const getPost = async () => {
   const data = await useFetch(title);
-    setDataMovie(data.Search);
+    setDataMovie(data);
   }
 
   useEffect(() => {

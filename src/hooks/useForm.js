@@ -1,26 +1,23 @@
 import {useState} from 'react'
 
-export const useForm = (initialForm) => {
+export const useForm = () => {
 
-    const [ form, setForm ] = useState(initialForm);
+    const [nameMovie, setNameMovie] = useState('');
+    const [movie, setMovie] = useState('');
 
     const handleInputChange = ({target}) => {
-        const {name, value} = target;
-
-        setForm({
-                ...form,
-                [ name ]: value
-        });
-        console.log(form)
+        const {value} = target;
+        setNameMovie(value)
     };
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        setMovie(nameMovie);
     };
 
     return {
-        ...form,
-        form,
+        movie,
+        nameMovie,
         handleInputChange,
         handleOnSubmit
     };
